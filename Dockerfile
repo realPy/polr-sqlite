@@ -6,7 +6,7 @@ RUN apk add --update --virtual git patch && apk add --no-cache nginx php5-fpm ph
     mkdir /www && cd /www/ && git clone https://github.com/cydrobolt/polr.git --depth=1 && mkdir /run/nginx; adduser www-data -G www-data -S && \
     cd /www/polr/ && patch -p0 < /migration_sqlite_patch && \
     ln -s /usr/bin/php5 /usr/bin/php && \
-    ln -s /usr/bin/php5-fpm /usr/bin/php-fpm && \
+    ln -s /usr/bin/php-fpm5 /usr/bin/php-fpm && \
     ln -s /etc/php5 /etc/php && \
     curl -sS https://getcomposer.org/installer | php && php composer.phar install --no-dev -o && \
     chown -R www-data:www-data /www && chown -R www-data:www-data /var/lib/nginx && \
