@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  polr_sqlite:
+    image: tesla3l337/polr
+    build: .
+    environment:
+     - POLR_ADMIN_PASSWORD=admin
+     - APP_ADDRESS=localhost:1337
+     - APP_PROTOCOL=http://
+     - APP_NAME=Docker Polr 
+    volumes:
+     - ./database:/polr_db
+     - ./conf_polr:/www/polr/conf_polr
+     - ./nginx.conf:/etc/nginx/nginx.conf
+     - ./php-fpm.conf:/etc/php5/php-fpm.conf
+    ports:
+      - 1337:80

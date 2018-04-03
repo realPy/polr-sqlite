@@ -1,0 +1,21 @@
+--- database/migrations/2015_11_04_015813_create_link_table.php.old
++++ database/migrations/2015_11_04_015813_create_link_table.php
+@@ -22,15 +22,15 @@
+             $table->string('short_url');
+             $table->longText('long_url');
+             $table->string('ip');
+-            $table->string('creator');
++            $table->string('creator')->nullable();
+             $table->string('clicks')->default(0);
+-            $table->string('secret_key');
++            $table->string('secret_key')->nullable();
+
+             $table->boolean('is_disabled')->default(0);
+             $table->boolean('is_custom')->default(0);
+             $table->boolean('is_api')->default(0);
+
+-            $table->timestamps();
++            $table->nullableTimestamps();
+         });
+     }
+
