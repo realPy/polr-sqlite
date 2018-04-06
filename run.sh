@@ -34,13 +34,13 @@ mkdir /polr_db
 fi
 
 chown www-data:www-data -R /polr_db
+envsubst < /www/polr/conf_polr > /www/polr/.env
 
 if [ ! -f /polr_db/polr.db ] ; then
 
  sqlite3 /polr_db/polr.db ".databases"
  chown www-data:www-data /polr_db/polr.db
 
-envsubst < /www/polr/conf_polr > /www/polr/.env
 
 cd /www/polr/
 echo "yes" | php artisan migrate
