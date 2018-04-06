@@ -30,9 +30,10 @@ fi
 
 if [ ! -d "/polr_db" ]; then
 mkdir /polr_db
-chown www-data:www-data /polr_db
 
 fi
+
+chown www-data:www-data -R /polr_db
 
 if [ ! -f /polr_db/polr.db ] ; then
 
